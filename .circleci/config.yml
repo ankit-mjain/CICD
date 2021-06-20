@@ -18,7 +18,7 @@ jobs:
      steps:
        - run: echo "World"
 
-  print_name:
+  print_user:
      docker:
        - image: circleci/node:13.8.0
      steps:
@@ -34,3 +34,4 @@ workflows:
       - print_world:
           requires:
             - print_hello
+      - print_user
