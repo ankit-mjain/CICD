@@ -27,6 +27,27 @@ jobs:
           command: |
             echo $USER-$CIRCLE_BRANCH-$CIRCLE_WORKFLOW_ID-$CIRCLE_BUILD_NUM-$CIRCLE_PR_NUMBER-$CIRCLE_SHA1
 
+  save_hello_world_output:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - persist_to_workspace:
+        root: /tmp/workspace
+        paths:
+          - output
+      - run: echo "Hello World from Other World !!" > output.txt
+           
+  print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attach_workspace:
+        at: /tmp/workspace/output
+      - run: 
+        name: "OutPut File:" 
+        command: |
+            cat output.txt
+
 workflows:
   # Name the workflow "welcome"
   welcome:
