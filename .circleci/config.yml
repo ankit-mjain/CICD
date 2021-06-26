@@ -33,7 +33,7 @@ jobs:
     steps:
       - run: echo "Hello World from Other World !!" > output.txt
       - persist_to_workspace:
-          root: /home/circlei
+          root: /tmp
           paths:
             - output.txt
            
@@ -42,7 +42,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - attach_workspace:
-          at: /home/circleci
+          at: /tmp
       - run: cat ~/output.txt
 
 workflows:
