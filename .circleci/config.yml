@@ -45,6 +45,16 @@ jobs:
           at: ~/
       - run: cat ~/output.txt
 
+commands:
+  print_pipeline_id:
+    description: "Testing Commands"
+    parameters:
+      to:
+        type: String
+        default: "Hellow World"
+      steps:
+        echo $CIRCLE_WORKFLOW_ID
+
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -56,6 +66,7 @@ workflows:
           requires:
             - print_hello
       - print_user
+      - print_pipeline_id
       - save_hello_world_output
       - print_output_file:
           requires:
