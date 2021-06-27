@@ -47,7 +47,6 @@ jobs:
 
   commands:
     print_pipeline_id:
-      description: "Testing Commands"
       steps:
         - run: echo {$CIRCLE_WORKFLOW_ID}
 
