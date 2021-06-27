@@ -58,9 +58,9 @@ jobs:
     steps:
       - run: return 1
       - run:
-        name: on error
-        command: echo "Hello error"
-        when: on_fail
+          name: on error
+          command: echo "Hello error"
+          when: on_fail
 
 commands:
   print_pipeline_id:
