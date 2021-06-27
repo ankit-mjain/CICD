@@ -52,6 +52,13 @@ jobs:
       - print_pipeline_id:
           id: << pipeline.id >>
 
+  when_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: return 1
+      when: on_fail
+
 commands:
   print_pipeline_id:
     description: "Testing Reusable Commands in CircleCI"
@@ -78,3 +85,4 @@ workflows:
           requires:
             - save_hello_world_output
       - command_job
+      - when_job
