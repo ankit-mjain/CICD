@@ -54,7 +54,7 @@ jobs:
 
 commands:
   print_pipeline_id:
-    descripton: "Testing Reusable Commands in CircleCI"
+    description: "Testing Reusable Commands in CircleCI"
     parameters:
       id: 
         type: string
