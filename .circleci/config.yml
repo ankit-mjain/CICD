@@ -56,8 +56,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: return 1
-      - when: on_fail
+      - run: 
+        command: return 1
+        when: on_fail
 
 commands:
   print_pipeline_id:
