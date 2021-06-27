@@ -45,7 +45,7 @@ jobs:
           at: ~/
       - run: cat ~/output.txt
       - print_pipeline_id:
-        to: "My-Name"
+          to: "My-Name"
 
 commands:
   print_pipeline_id:
