@@ -57,7 +57,7 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: return 1
-      when: on_fail
+      - when: on_fail
 
 commands:
   print_pipeline_id:
