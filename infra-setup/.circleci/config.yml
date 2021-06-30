@@ -1,0 +1,12 @@
+version: 2.1
+
+jobs:
+  create_infrastructure:
+    docker:
+      -image: amazon/aws-cli
+    steps:
+      - run: aws cloudformation create-stack --stack-name teststackCircleCI --template-body cf_script.yml
+
+workflows:
+  jobs:
+    - create_infrastructure
